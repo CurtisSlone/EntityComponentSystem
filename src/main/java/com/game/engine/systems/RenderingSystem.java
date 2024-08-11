@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 import com.game.engine.components.Component;
 
-public class RenderingSystem implements System{
+public class RenderingSystem implements System {
 
     ArrayList<Component> components;
     @Override

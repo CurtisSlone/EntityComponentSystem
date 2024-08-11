@@ -13,14 +13,14 @@ public class SpaceRocks extends Game {
 
     Batch batch;
     Texture space;
-    
-    RenderingSystem renderingSystem;
-    LocationSystem locationSystem;
+    Manager manager;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
         space = new Texture(Gdx.files.internal("assets/space.png"));
+        manager = Manager.getInstance();
+        manager.init(new RenderingSystem(), new LocationSystem());
     } 
 
     public void render(){
