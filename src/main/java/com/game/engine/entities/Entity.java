@@ -33,5 +33,10 @@ public class Entity {
     // public void setGraphics(){}
     public void update(Batch batch, float delta){
         _graphicsComponent.update(this, batch, delta);
+        
+    }
+
+    public void dispose(){
+        _components.stream().forEach(Component::dispose);
     }
 }

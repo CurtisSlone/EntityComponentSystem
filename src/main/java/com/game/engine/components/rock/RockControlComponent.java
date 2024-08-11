@@ -11,7 +11,7 @@ public class RockControlComponent extends ControlComponent{
     }
 
     @Override
-    public void receiveMessage() {
+    public void receiveMessage(String message) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'receiveMessage'");
     }

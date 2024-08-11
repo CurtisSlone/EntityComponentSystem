@@ -23,7 +23,7 @@ public class LocationSystem implements System {
     }
 
     @Override
-    public void notifyComponents() {
+    public void notifyComponents(String message) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'notifyComponents'");
     }

@@ -8,7 +8,7 @@ import com.game.engine.entities.Entity;
 
 public abstract class GraphicsComponent implements Component{
 
-    Texture _texture;
-    Vector2 _currentPosition;
+    protected Texture _texture;
+    protected Vector2 _currentPosition;
     public abstract void update(Entity entity, Batch batch, float delta);
 }

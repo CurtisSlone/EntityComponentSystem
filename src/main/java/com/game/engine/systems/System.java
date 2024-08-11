@@ -7,5 +7,5 @@ import com.game.engine.components.Component;
 public interface System {
     void registerComponent(Component component);
     void removeComponent(Component component);
-    void notifyComponents();
+    void notifyComponents(String message);
 }
