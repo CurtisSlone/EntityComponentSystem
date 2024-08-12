@@ -10,22 +10,20 @@ public class LocationSystem implements System {
 
     ArrayList<Component> components;
     Hashtable<String,Vector2> locations;
+    
     @Override
     public void registerComponent(Component component) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'registerComponent'");
     }
 
     @Override
     public void removeComponent(Component component) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'removeComponent'");
     }
 
     @Override
     public void notifyComponents(String message) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'notifyComponents'");
     }
 
 }

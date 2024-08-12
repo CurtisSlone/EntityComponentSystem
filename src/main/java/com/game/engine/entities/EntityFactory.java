@@ -1,8 +1,5 @@
 package com.game.engine.entities;
 
-import com.game.engine.components.laser.LaserControlComponent;
-import com.game.engine.components.laser.LaserGraphicsComponent;
-import com.game.engine.components.laser.LaserPhysicsComponent;
 import com.game.engine.components.player.PlayerControlComponent;
 import com.game.engine.components.player.PlayerGraphicsComponent;
 import com.game.engine.components.player.PlayerPhysicsComponent;
@@ -27,9 +24,6 @@ public class EntityFactory {
                 return e;
             case ROCK:
                 e = new Entity(new RockControlComponent(), new RockPhysicsComponent(), new RockGraphicsComponent());
-                return e;
-            case LASER:
-                e = new Entity(new LaserControlComponent(), new LaserPhysicsComponent(), new LaserGraphicsComponent());
                 return e;
             default:
                 return null;
