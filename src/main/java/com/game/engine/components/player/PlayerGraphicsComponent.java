@@ -13,12 +13,11 @@ public class PlayerGraphicsComponent extends GraphicsComponent {
     public PlayerGraphicsComponent(){
         this._texture = new Texture(Gdx.files.internal("assets/spaceship.png"));
         this._currentPosition = new Vector2(400,400);
-
     }
+
     @Override
     public void dispose() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'dispose'");
+        
     }
 
     @Override
@@ -30,7 +29,6 @@ public class PlayerGraphicsComponent extends GraphicsComponent {
     @Override
     public void update(Batch batch, float delta) {
         // TODO Auto-generated method stub
-        
         batch.draw(this._texture, this._currentPosition.x, this._currentPosition.y);
        
     }

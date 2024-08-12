@@ -1,5 +1,5 @@
 package com.game.engine.components;
 
-public abstract class PhysicsComponent implements Component{
+public abstract class PhysicsComponent implements Component {
 
 }

@@ -1,7 +1,5 @@
 package com.game.screens;
 
-import java.util.ArrayList;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -12,23 +10,22 @@ import com.game.engine.Manager;
 import com.game.engine.entities.Entity;
 import com.game.engine.entities.EntityFactory;
 import com.game.engine.entities.EntityFactory.EntityType;
-import com.game.engine.systems.LocationSystem;
-import com.game.engine.systems.RenderingSystem;
 
-public class MainGameScreen implements Screen{
+public class MainGameScreen implements Screen {
 
 
     private Batch _batch;
     private Texture _space;
     private Manager _manager;
-    private Entity _player;
-    private ArrayList<Entity> rocks;
+    private static Entity _player;
+    
 
 
     public MainGameScreen(){
         
         _manager = Manager.getInstance();
-        _manager.init(new RenderingSystem(), new LocationSystem());
+        _manager.init();
+        
     }
     @Override
     public void show() {
@@ -50,6 +47,7 @@ public class MainGameScreen implements Screen{
          // Call update methods
         _batch.draw(_space,0,0);
         _player.update(_batch, delta);
+        _manager.updateCurrentEntities(_batch, delta);
         _batch.end();
        
     }
@@ -78,6 +76,7 @@ public class MainGameScreen implements Screen{
     public void dispose() {
         // TODO Auto-generated method stub
     }
+
 
 
 }
