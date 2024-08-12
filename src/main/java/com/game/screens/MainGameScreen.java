@@ -8,7 +8,10 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.math.MathUtils;
+import com.badlogic.gdx.math.Vector2;
 import com.game.engine.Manager;
+import com.game.engine.components.player.PlayerControlComponent;
 import com.game.engine.entities.Entity;
 import com.game.engine.entities.EntityFactory;
 import com.game.engine.entities.EntityFactory.EntityType;
@@ -22,6 +25,7 @@ public class MainGameScreen implements Screen {
     private static Entity _player;
     private static ArrayList<Entity> _rocks;
     
+    
     public MainGameScreen(){
         
         _manager = Manager.getInstance();
@@ -32,16 +36,18 @@ public class MainGameScreen implements Screen {
     @Override
     public void show() {
         _player = EntityFactory.createEntity(EntityType.PLAYER);
+        _player.initStartingPhysics(0, 0, 0, 100, 10);
         
         for(int i = 0; i < 6; i++)
             _rocks.add(EntityFactory.createEntity(EntityType.ROCK));
+        _rocks.forEach(ent -> ent.initStartingPhysics(0, 0, 0, 0, 0));
         
         _manager.setPlayer(_player);
         _manager.setRocks(_rocks);
 
         _batch = new SpriteBatch();
         _space = new Texture(Gdx.files.internal("assets/space.png"));
-       
+
     }
 
     @Override

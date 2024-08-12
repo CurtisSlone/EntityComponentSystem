@@ -5,14 +5,17 @@ import java.util.Random;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Vector2;
 import com.game.engine.components.GraphicsComponent;
+import com.game.engine.entities.Entity;
 
 public class RockGraphicsComponent extends GraphicsComponent {
 
     public RockGraphicsComponent(){
         this._texture = new Texture(Gdx.files.internal("assets/rock.png"));
-        this._currentPosition = new Vector2(getRandom(0, 800), getRandom(0, 600));
+        this._sprite = new Sprite(this._texture);
+        this._currentPosition = new Vector2(getRandom(50, 750), getRandom(50, 550));
     }
     @Override
     public void dispose() {
@@ -26,9 +29,10 @@ public class RockGraphicsComponent extends GraphicsComponent {
     }
 
     @Override
-    public void update( Batch batch, float delta) {
+    public void update( Entity entity, Batch batch, float delta) {
         // TODO Auto-generated method stub
-        batch.draw(this._texture, this._currentPosition.x, this._currentPosition.y);
+        _sprite.setPosition(this._currentPosition.x, this._currentPosition.y);
+        _sprite.draw(batch);
     }
 
     public int getRandom(int min, int max){
