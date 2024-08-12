@@ -6,9 +6,10 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Current File",
+            "name": "Windows",
             "request": "launch",
-            "mainClass": "${file}"
+            "mainClass": "com.game.DesktopLauncher",
+            "projectName": "spacerocks",
         },
         {
             "type": "java",

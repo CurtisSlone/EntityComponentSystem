@@ -2,7 +2,6 @@ package com.game.engine.components.laser;
 
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.game.engine.components.GraphicsComponent;
-import com.game.engine.entities.Entity;
 
 public class LaserGraphicsComponent extends GraphicsComponent{
 
@@ -19,7 +18,7 @@ public class LaserGraphicsComponent extends GraphicsComponent{
     }
 
     @Override
-    public void update(Entity entity, Batch batch, float delta) {
+    public void update(Batch batch, float delta) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }

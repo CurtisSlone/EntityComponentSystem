@@ -35,7 +35,7 @@ public class Entity {
 
     // public void setGraphics(){}
     public void update(Batch batch, float delta){
-        _graphicsComponent.update(this, batch, delta);
+        _graphicsComponent.update( batch, delta);
         
     }
 
