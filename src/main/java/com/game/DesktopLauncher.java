@@ -9,7 +9,7 @@ public class DesktopLauncher {
         Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setForegroundFPS(60);
 		config.setTitle("Space Rocks");
-		config.setWindowedMode(800,800);
+		config.setWindowedMode(800,600);
 
         Lwjgl3Application app = new Lwjgl3Application(new SpaceRocks(), config);
 

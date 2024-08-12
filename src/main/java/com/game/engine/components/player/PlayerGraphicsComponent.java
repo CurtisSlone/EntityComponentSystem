@@ -12,7 +12,7 @@ public class PlayerGraphicsComponent extends GraphicsComponent {
     Sprite sprite;
     public PlayerGraphicsComponent(){
         this._texture = new Texture(Gdx.files.internal("assets/spaceship.png"));
-        this._currentPosition = new Vector2(400,400);
+        this._currentPosition = new Vector2(400,300);
     }
 
     @Override
