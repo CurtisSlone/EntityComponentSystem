@@ -26,6 +26,7 @@ public class MainGameScreen implements Screen {
         
         _manager = Manager.getInstance();
         _manager.init();
+        _rocks = new ArrayList<>();
 
     }
     @Override
@@ -37,7 +38,7 @@ public class MainGameScreen implements Screen {
         
         _manager.setPlayer(_player);
         _manager.setRocks(_rocks);
-        
+
         _batch = new SpriteBatch();
         _space = new Texture(Gdx.files.internal("assets/space.png"));
        
@@ -54,7 +55,7 @@ public class MainGameScreen implements Screen {
          // Call update methods
         _batch.draw(_space,0,0);
         _player.update(_batch, delta);
-        // _manager.updateCurrentEntities(_batch, delta);
+        _manager.updateCurrentEntities(_batch, delta);
         _batch.end();
        
     }
