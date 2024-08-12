@@ -39,6 +39,18 @@ public class Entity {
         
     }
 
+    public void sendMessage(Component.MESSAGE messageType, String ... args){
+		String fullMessage = messageType.toString();
+
+		for (String string : args) {
+			fullMessage += Component.MESSAGE_TOKEN + string;
+		}
+
+		for(Component component: _components){
+			component.receiveMessage(fullMessage);
+		}
+	}
+
     public String getEntityId(){
         return this.entityId;
     }

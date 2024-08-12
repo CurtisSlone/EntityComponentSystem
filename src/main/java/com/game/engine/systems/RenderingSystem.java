@@ -7,6 +7,7 @@ import com.game.engine.components.Component;
 public class RenderingSystem implements System {
 
     ArrayList<Component> components;
+    
     @Override
     public void registerComponent(Component component) {
         // TODO Auto-generated method stub
