@@ -7,15 +7,26 @@ import com.game.engine.entities.Entity;
 
 public abstract class PhysicsComponent implements Component {
 
-    private Entity.State _state;
-    
-    private Polygon _boundaryPolygon;
+    protected Entity.State _state;
+    protected Vector2 _velocityVec;
+    protected Vector2 _accelerationVec;
+    protected float _acceleration;
+    protected float _maxSpeed;
+    protected float _deceleration;
+    protected Polygon _boundaryPolygon;
+    protected Vector2 _currentPosition;
+    protected static Rectangle _worldBounds;
 
-    private static Rectangle _worldBounds;
+    public void initStartingPhysics(float velocity, float accelerationAngle, float acceleration, float maxSpeed, float _deceleration){
+        _accelerationVec = new Vector2().setAngleDeg(accelerationAngle);
+        _velocityVec = (this._accelerationVec.len() == 0) ? new Vector2(velocity, 0) : this._accelerationVec.setLength(velocity);
+        _acceleration = acceleration;
+        _maxSpeed = maxSpeed;
+        _deceleration = _deceleration;
+    }
 
-    protected PhysicsComponent(){
-        
-        _boundaryPolygon = null;
+    public static void setWorldBounds(Vector2 worldBounds){
+        _worldBounds = new Rectangle(0,0, worldBounds.x, worldBounds.y);
     }
 
     public abstract void update(Entity entity, float delta);

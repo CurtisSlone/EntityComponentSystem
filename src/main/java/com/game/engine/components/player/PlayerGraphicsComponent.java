@@ -23,12 +23,6 @@ public class PlayerGraphicsComponent extends GraphicsComponent {
     }
 
     @Override
-    public void receiveMessage(String message) {
-        // TODO Auto-generated method stub
-        String[] string = message.split(MESSAGE_TOKEN);
-    }
-
-    @Override
     public void update(Entity entity, Batch batch, float delta) {
         // TODO Auto-generated method stub
         _sprite.setPosition(this._currentPosition.x, this._currentPosition.y);

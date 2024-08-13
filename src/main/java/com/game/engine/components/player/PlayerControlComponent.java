@@ -3,7 +3,6 @@ package com.game.engine.components.player;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
@@ -25,6 +24,9 @@ public class PlayerControlComponent extends ControlComponent implements InputPro
 		keys.put(Keys.DOWN, false);
 		keys.put(Keys.QUIT, false);
 	};
+
+    private final float degreesPerSecond = 120;
+
 
     public PlayerControlComponent(){
         Gdx.input.setInputProcessor(this);
@@ -136,11 +138,6 @@ public class PlayerControlComponent extends ControlComponent implements InputPro
         Gdx.input.setInputProcessor(null);
     }
 
-    @Override
-    public void receiveMessage(String message) {
-        // TODO Auto-generated method stub
-    }
-
     /*
      * Private key presses
      */
@@ -191,5 +188,6 @@ public class PlayerControlComponent extends ControlComponent implements InputPro
 	* Game Unique Controls
 	*/
 
+    
 
 }

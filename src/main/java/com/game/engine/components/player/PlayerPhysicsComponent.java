@@ -5,16 +5,13 @@ import com.game.engine.entities.Entity;
 
 public class PlayerPhysicsComponent extends PhysicsComponent{
 
-    private final float degreesPerSecond = 120;
 
+    public PlayerPhysicsComponent(){
+        initStartingPhysics(0, 0, 200, 100, 10);
+    }
     @Override
     public void dispose() {
                 
-    }
-
-    @Override
-    public void receiveMessage(String message) {
-        
     }
 
     @Override

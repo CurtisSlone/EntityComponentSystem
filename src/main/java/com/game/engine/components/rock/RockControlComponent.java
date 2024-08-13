@@ -11,11 +11,6 @@ public class RockControlComponent extends ControlComponent{
     }
 
     @Override
-    public void receiveMessage(String message) {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
     public void update(Entity entity, float delta) {
         // TODO Auto-generated method stub
     }

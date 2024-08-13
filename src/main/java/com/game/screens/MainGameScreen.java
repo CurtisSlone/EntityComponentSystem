@@ -8,10 +8,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.game.engine.Manager;
-import com.game.engine.components.player.PlayerControlComponent;
 import com.game.engine.entities.Entity;
 import com.game.engine.entities.EntityFactory;
 import com.game.engine.entities.EntityFactory.EntityType;
@@ -24,6 +22,7 @@ public class MainGameScreen implements Screen {
     private static Manager _manager;
     private static Entity _player;
     private static ArrayList<Entity> _rocks;
+    private static final Vector2 _worldBounds = new Vector2(800,600);
     
     
     public MainGameScreen(){
@@ -33,14 +32,14 @@ public class MainGameScreen implements Screen {
         _rocks = new ArrayList<>();
 
     }
+    
     @Override
     public void show() {
+        _manager.setWorldBounds(_worldBounds);
         _player = EntityFactory.createEntity(EntityType.PLAYER);
-        _player.initStartingPhysics(0, 0, 0, 100, 10);
         
         for(int i = 0; i < 6; i++)
             _rocks.add(EntityFactory.createEntity(EntityType.ROCK));
-        _rocks.forEach(ent -> ent.initStartingPhysics(0, 0, 0, 0, 0));
         
         _manager.setPlayer(_player);
         _manager.setRocks(_rocks);
@@ -60,7 +59,6 @@ public class MainGameScreen implements Screen {
 
          // Call update methods
         _batch.draw(_space,0,0);
-        _player.update(_batch, delta);
         _manager.updateCurrentEntities(_batch, delta);
         _batch.end();
        
