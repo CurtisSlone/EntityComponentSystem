@@ -24,7 +24,7 @@ public abstract class MovementComponent implements Component {
         mc.changeMovement( _velocityVec.len(), _accelerationVec.angleDeg(), _acceleration, _maxSpeed, _deceleration);
     }
 
-    protected <T extends MovementComponent> void shareDimension(T mc){
+    public <T extends MovementComponent> void shareDimension(T mc){
         mc.setDimension(getDimensions());
     }
 

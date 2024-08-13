@@ -19,7 +19,7 @@ public class PlayerPhysicsComponent extends PhysicsComponent{
 
     @Override
     public void update(Entity entity, float delta) {
-        
+        shareMovement(entity.getGraphicsComponent());
     }
 
 }

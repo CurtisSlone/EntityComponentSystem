@@ -32,7 +32,8 @@ public class Entity {
         _graphicsComponent = graphicsComponent;
         _components = new ArrayList<Component>();
         _components = List.of(control, physics, graphicsComponent);
-        this.entityId = IdGenerator.generateIdString(8);  
+        this.entityId = IdGenerator.generateIdString(8);
+        this._graphicsComponent.shareDimension(this._physicsComponent);
     }
 
     public void update(Batch batch, float delta){
