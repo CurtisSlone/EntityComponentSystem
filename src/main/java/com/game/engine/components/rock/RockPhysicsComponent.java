@@ -7,12 +7,12 @@ import com.game.engine.entities.Entity;
 public class RockPhysicsComponent extends PhysicsComponent{
 
     public RockPhysicsComponent(){
-        changeMovement(
-            (50 + MathUtils.random(30)),
-            MathUtils.random(360),
-            0,
-            (50 + MathUtils.random(30)),
-            0);
+        super();
+        float random = MathUtils.random(30);
+        setSpeed(50 + random);
+        setMaxSpeed(50 + random);
+        setDeceleration(0);
+        setMotionAngle( MathUtils.random(360));
     }
     
     @Override
@@ -23,7 +23,10 @@ public class RockPhysicsComponent extends PhysicsComponent{
 
     @Override
     public void update(Entity entity, float delta) {
-        shareMovement(entity.getGraphicsComponent());
+        applyPhysics(delta);
+        wrapAroundWorld();
+        shareCurrentPosition(entity.getGraphicsComponent());
+
     }
 
 }

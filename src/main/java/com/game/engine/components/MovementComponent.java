@@ -4,28 +4,16 @@ import com.badlogic.gdx.math.Vector2;
 
 public abstract class MovementComponent implements Component {
 
-    protected Vector2 _velocityVec;
-    protected Vector2 _accelerationVec;
-    protected float _acceleration;
-    protected float _maxSpeed;
-    protected float _deceleration;
+   
     protected Vector2 _currentPosition;
     protected Vector2 _dimensions;
     
-    public void changeMovement(float velocity, float accelerationAngle, float acceleration, float maxSpeed, float _deceleration){
-        _accelerationVec = new Vector2().setAngleDeg(accelerationAngle);
-        _velocityVec = (this._accelerationVec.len() == 0) ? new Vector2(velocity, 0) : this._accelerationVec.setLength(velocity);
-        _acceleration = acceleration;
-        _maxSpeed = maxSpeed;
-        _deceleration = _deceleration;
-    }
-
-    protected <T extends MovementComponent> void shareMovement(T mc){
-        mc.changeMovement( _velocityVec.len(), _accelerationVec.angleDeg(), _acceleration, _maxSpeed, _deceleration);
-    }
-
     public <T extends MovementComponent> void shareDimension(T mc){
-        mc.setDimension(getDimensions());
+        mc.setDimension(_dimensions);
+    }
+
+    public <T extends MovementComponent> void shareCurrentPosition(T mc){
+        mc.setCurrentPosition(_currentPosition);
     }
 
     /*
@@ -36,11 +24,9 @@ public abstract class MovementComponent implements Component {
     this._dimensions = dimension;
     }
 
-    public void setSpeed(float speed){
-        if (_velocityVec.len() == 0)
-            _velocityVec.set(speed, 0);
-        else
-            _velocityVec.setLength(speed);
+
+    public void setCurrentPosition(Vector2 position){
+        this._currentPosition = position;
     }
 
     /*
@@ -49,6 +35,10 @@ public abstract class MovementComponent implements Component {
 
     public Vector2 getDimensions(){
     return this._dimensions;
+    }
+
+    public Vector2 getCurrentPosition(){
+        return this._currentPosition;
     }
 
 }

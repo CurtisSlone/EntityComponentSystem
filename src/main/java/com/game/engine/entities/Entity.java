@@ -11,13 +11,6 @@ import com.game.engine.components.PhysicsComponent;
 import com.game.engine.util.IdGenerator;
 public class Entity {
 
-    public static enum State {
-        ALIVE,
-        DESTROYED
-    }
-
-
-
     private String entityId;
     private List<Component> _components;
     private ControlComponent _controlComponent;

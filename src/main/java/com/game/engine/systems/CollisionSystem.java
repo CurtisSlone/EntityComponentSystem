@@ -1,13 +1,14 @@
 package com.game.engine.systems;
 
-import java.util.ArrayList;
-
 import com.game.engine.components.Component;
 
-public class RenderingSystem implements System {
+public class CollisionSystem implements System{
 
-    ArrayList<Component> components;
+    public static CollisionSystem collisionSystem;
 
+    public static CollisionSystem getInstance(){
+        return new CollisionSystem();
+    }
     @Override
     public void registerComponent(Component component) {
         // TODO Auto-generated method stub

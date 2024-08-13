@@ -15,7 +15,6 @@ public class RockGraphicsComponent extends GraphicsComponent {
     public RockGraphicsComponent(){
         this._texture = new Texture(Gdx.files.internal("assets/rock.png"));
         this._sprite = new Sprite(this._texture);
-        this._currentPosition = new Vector2(getRandom(50, 750), getRandom(50, 550));
     }
 
     @Override
@@ -29,13 +28,6 @@ public class RockGraphicsComponent extends GraphicsComponent {
         // TODO Auto-generated method stub
         _sprite.setPosition(this._currentPosition.x, this._currentPosition.y);
         _sprite.draw(batch);
-    }
-
-    public int getRandom(int min, int max){
-        Random random = new Random();
-        return random.ints(min,max)
-                .findFirst()
-                .getAsInt();
     }
 
 }

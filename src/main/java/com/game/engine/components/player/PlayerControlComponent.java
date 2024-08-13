@@ -184,10 +184,4 @@ public class PlayerControlComponent extends ControlComponent implements InputPro
 
     
 
-    /*
-	* Game Unique Controls
-	*/
-
-    
-
 }
