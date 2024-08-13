@@ -16,10 +16,6 @@ public abstract class MovementComponent implements Component {
         mc.setCurrentPosition(_currentPosition);
     }
 
-    public <T extends MovementComponent> void shareRotation(T mc){
-        mc.setCurrentPosition(_currentPosition);
-    }
-
 
     /*
      * SETTERS

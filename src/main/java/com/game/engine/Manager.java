@@ -25,18 +25,15 @@ public class Manager {
     public void init(){
         Manager._collisionSystem = CollisionSystem.getInstance();
     }
-
-   
-
-    // Move To renderer system
     public void updateCurrentEntities( Batch batch, float delta){
+        _collisionSystem.checkCollisions();
         _player.update(batch, delta);
         _rocks.forEach(ent -> ent.update(batch, delta));
     }
 
-    public void printEntityIds(){
-        _rocks.forEach(ent -> System.out.println(ent.getEntityId()));
-        System.out.println(_player.getEntityId());
+    public void registerComponents(){
+        _collisionSystem.registerComponent(_player.getPhysicsComponent());
+        _rocks.forEach(ent -> _collisionSystem.registerComponent(ent.getPhysicsComponent()));
     }
 
     /*

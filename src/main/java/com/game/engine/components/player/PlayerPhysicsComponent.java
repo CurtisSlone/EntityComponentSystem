@@ -17,12 +17,15 @@ public class PlayerPhysicsComponent extends PhysicsComponent{
     public void dispose() {
                 
     }
-
+ 
     @Override
     public void update(Entity entity, float delta) {
         applyPhysics(delta);
         wrapAroundWorld();
         shareCurrentPosition(entity.getGraphicsComponent());
+        _boundaryPolygon.setPosition(_currentPosition.x, _currentPosition.y );
+
+
     }
 
 }

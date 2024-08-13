@@ -15,6 +15,7 @@ public class RockGraphicsComponent extends GraphicsComponent {
     public RockGraphicsComponent(){
         this._texture = new Texture(Gdx.files.internal("assets/rock.png"));
         this._sprite = new Sprite(this._texture);
+        this._sprite.setOrigin(0, 0);
     }
 
     @Override
@@ -25,7 +26,10 @@ public class RockGraphicsComponent extends GraphicsComponent {
 
     @Override
     public void update( Entity entity, Batch batch, float delta) {
-        // TODO Auto-generated method stub
+        // System.out.println(String.format("""
+        //         Entity ID: %s,
+        //         GraphicsPosition: (%.2f, %.2f)
+        //         """, entity.getEntityId(), _currentPosition.x, _currentPosition.y));
         _sprite.setPosition(this._currentPosition.x, this._currentPosition.y);
         _sprite.draw(batch);
     }

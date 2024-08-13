@@ -26,8 +26,9 @@ public class RockPhysicsComponent extends PhysicsComponent{
         applyPhysics(delta);
         wrapAroundWorld();
         shareCurrentPosition(entity.getGraphicsComponent());
-
-    }
+        _boundaryPolygon.setPosition(_currentPosition.x, _currentPosition.y );
+        
+     }
 
 }
  

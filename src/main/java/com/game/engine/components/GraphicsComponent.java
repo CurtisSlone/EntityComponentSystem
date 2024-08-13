@@ -20,5 +20,6 @@ public abstract class GraphicsComponent extends MovementComponent {
     public void rotateBy(float d){
         this._sprite.rotate(d);
     }
+
 }
  

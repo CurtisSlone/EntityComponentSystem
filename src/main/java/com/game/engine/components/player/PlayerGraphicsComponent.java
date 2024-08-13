@@ -15,6 +15,7 @@ public class PlayerGraphicsComponent extends GraphicsComponent {
     public PlayerGraphicsComponent(){
         this._texture = new Texture(Gdx.files.internal("assets/spaceship.png"));
         this._sprite = new Sprite(this._texture);
+        this._sprite.setOrigin(0, 0);
         this._dimensions = new Vector2(this._sprite.getWidth(), this._sprite.getHeight());
     }
 
