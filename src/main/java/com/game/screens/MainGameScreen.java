@@ -43,6 +43,7 @@ public class MainGameScreen implements Screen {
         
         _manager.setPlayer(_player);
         _manager.setRocks(_rocks);
+        _manager.setEntityBounds();
 
         _batch = new SpriteBatch();
         _space = new Texture(Gdx.files.internal("assets/space.png"));

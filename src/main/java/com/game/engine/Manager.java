@@ -33,7 +33,12 @@ public class Manager {
     // Move To renderer system
     public void updateCurrentEntities( Batch batch, float delta){
         _player.update(batch, delta);
-        _rocks.stream().forEach(ent -> ent.update(batch, delta));
+        _rocks.forEach(ent -> ent.update(batch, delta));
+    }
+
+    public void setEntityBounds(){
+        _player.getPhysicsComponent().setWorldBounds(this._worldBounds);
+        _rocks.forEach(ent->ent.getPhysicsComponent().setWorldBounds(_worldBounds));
     }
 
     public void printEntityIds(){
@@ -49,7 +54,6 @@ public class Manager {
         return this._player;
     }
    
-
      /*
       * SETTERS
       */
