@@ -32,16 +32,16 @@ public abstract class MovementComponent implements Component {
      * SETTERS
      */
 
-     public void setDimension(Vector2 dimension){
-        this._dimensions = dimension;
-     }
+    public void setDimension(Vector2 dimension){
+    this._dimensions = dimension;
+    }
 
-     /*
-      * GETTERS
-      */
+    /*
+    * GETTERS
+    */
 
-      public Vector2 getDimensions(){
-        return this._dimensions;
-      }
+    public Vector2 getDimensions(){
+    return this._dimensions;
+    }
 
 }
