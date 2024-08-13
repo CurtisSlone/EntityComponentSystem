@@ -16,5 +16,9 @@ public abstract class GraphicsComponent extends MovementComponent {
     public void initDimensions(){
         this._dimensions = new Vector2(this._sprite.getWidth(), this._sprite.getHeight());
     }
+
+    public void rotateBy(float d){
+        this._sprite.rotate(d);
+    }
 }
  

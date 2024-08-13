@@ -25,7 +25,7 @@ public class PlayerControlComponent extends ControlComponent implements InputPro
 		keys.put(Keys.QUIT, false);
 	};
 
-    private final float degreesPerSecond = 120;
+    private final float _degreesPerSecond = 120;
 
 
     public PlayerControlComponent(){
@@ -35,13 +35,13 @@ public class PlayerControlComponent extends ControlComponent implements InputPro
     @Override
     public void update(Entity entity, float delta) {
         if( keys.get(Keys.LEFT)){
-            
+            entity.rotateBy(_degreesPerSecond * delta);
 		}else if( keys.get(Keys.RIGHT)){
-            
+            entity.rotateBy(-_degreesPerSecond * delta);
 		}else if( keys.get(Keys.UP)){
-            
+            entity.getPhysicsComponent().accelerateForward();
 		}else if(keys.get(Keys.DOWN)){
-            
+            // nothing
 		}else if(keys.get(Keys.QUIT)){
 			Gdx.app.exit();
 		}else{

@@ -47,7 +47,10 @@ public class Entity {
     /*
     * Exposing component control
     */
-
+    public void rotateBy(float d){
+        this._physicsComponent.rotateBy(d);
+        this._graphicsComponent.rotateBy(d);
+    }
 
     /*
     * GETTERS

@@ -67,11 +67,14 @@ public class Manager {
     }
 
     public void setEntityDimensions(){
+
         _player.getGraphicsComponent().initDimensions();
         _player.getGraphicsComponent().shareDimension(_player.getPhysicsComponent());
         _player.getPhysicsComponent().setBoundaryPolygon(8);
+
         _rocks.forEach(ent-> ent.getGraphicsComponent().initDimensions());
         _rocks.forEach(ent -> ent.getGraphicsComponent().shareDimension(ent.getPhysicsComponent()));
+        _rocks.forEach(ent -> ent.getPhysicsComponent().setBoundaryPolygon(8));
     }
 
     public void setPlayerPosition(Vector2 position){

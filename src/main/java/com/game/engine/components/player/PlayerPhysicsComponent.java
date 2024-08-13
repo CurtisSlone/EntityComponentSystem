@@ -8,7 +8,7 @@ public class PlayerPhysicsComponent extends PhysicsComponent{
 
     public PlayerPhysicsComponent(){
         super();
-        this._acceleration = 200;
+        setAcceleration(200);
         setMaxSpeed(100);
         setDeceleration(10);
     }
@@ -23,7 +23,6 @@ public class PlayerPhysicsComponent extends PhysicsComponent{
         applyPhysics(delta);
         wrapAroundWorld();
         shareCurrentPosition(entity.getGraphicsComponent());
-
     }
 
 }

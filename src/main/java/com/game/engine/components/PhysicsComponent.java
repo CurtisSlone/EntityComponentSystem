@@ -13,7 +13,7 @@ public abstract class PhysicsComponent extends MovementComponent {
     protected float _acceleration;
     protected float _maxSpeed;
     protected float _deceleration;
-    protected Polygon _boundaryPolygon;
+    public Polygon _boundaryPolygon;
     protected static Vector2 _worldBounds;
 
     protected PhysicsComponent(){
@@ -25,6 +25,9 @@ public abstract class PhysicsComponent extends MovementComponent {
         _boundaryPolygon = null;
     }
 
+    /*
+     * RENDERING ACTIONS
+     */
     public void applyPhysics(float delta){
         _velocityVec.add(_accelerationVec.x * delta, _accelerationVec.y * delta);
         float speed = _velocityVec.len();
@@ -38,6 +41,8 @@ public abstract class PhysicsComponent extends MovementComponent {
         _accelerationVec.set(0,0);
     }
 
+    public abstract void update(Entity entity, float delta);
+
     public void wrapAroundWorld(){
         if(_currentPosition.x + _dimensions.x < 0) _currentPosition.x = _worldBounds.x;
         if( _currentPosition.x > _worldBounds.x ) _currentPosition.x = 0;
@@ -45,6 +50,32 @@ public abstract class PhysicsComponent extends MovementComponent {
         if( _currentPosition.y > _worldBounds.y) _currentPosition.y = 0;
         
     }
+
+    /*
+     * MOVEMENT ACTIONS
+     */
+
+     public void accelerateAtAngle(float angle){
+        _accelerationVec.add( 
+            new Vector2(_acceleration, 0).setAngleDeg(angle));
+    }
+
+    public void accelerateForward(){
+        this.accelerateAtAngle(this._boundaryPolygon.getRotation());
+    }
+
+    public void rotateBy(float d){
+        this._boundaryPolygon.rotate(d);
+    }
+
+    /*
+     * GETTERS
+     */
+
+    public float getMotionAngle(){
+        return _velocityVec.angleDeg();
+    }
+
 
     /*
      * SETTERS
@@ -69,11 +100,13 @@ public abstract class PhysicsComponent extends MovementComponent {
         this._deceleration = d;
     }
 
+    public void setAcceleration(float a){
+        _acceleration = a;
+    }
+
     public void setMotionAngle(float angle){
         _velocityVec.setAngleDeg(angle);
     }
-
-    
 
     public void setBoundaryPolygon(int sides){
         float w = _dimensions.x;
@@ -89,7 +122,5 @@ public abstract class PhysicsComponent extends MovementComponent {
             vertices[2*i+1] = h/2 * MathUtils.sin(angle) + h/2;
         }
         _boundaryPolygon = new Polygon(vertices);
-
     }
-    public abstract void update(Entity entity, float delta);
 }
