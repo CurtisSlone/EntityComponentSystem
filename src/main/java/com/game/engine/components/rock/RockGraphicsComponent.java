@@ -17,6 +17,7 @@ public class RockGraphicsComponent extends GraphicsComponent {
         this._sprite = new Sprite(this._texture);
         this._currentPosition = new Vector2(getRandom(50, 750), getRandom(50, 550));
     }
+
     @Override
     public void dispose() {
         // TODO Auto-generated method stub

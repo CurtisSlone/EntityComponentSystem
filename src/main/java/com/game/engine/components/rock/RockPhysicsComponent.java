@@ -7,22 +7,19 @@ import com.game.engine.entities.Entity;
 public class RockPhysicsComponent extends PhysicsComponent{
 
     public RockPhysicsComponent(){
-        initStartingPhysics(
+        changeMovement(
             (50 + MathUtils.random(30)),
             MathUtils.random(360),
             0,
             (50 + MathUtils.random(30)),
             0);
     }
+    
     @Override
     public void dispose() {
         // TODO Auto-generated method stub
     }
 
-    @Override
-    public void receiveMessage(String message) {
-        // TODO Auto-generated method stub
-    }
 
     @Override
     public void update(Entity entity, float delta) {

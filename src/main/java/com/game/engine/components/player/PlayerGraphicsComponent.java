@@ -11,6 +11,7 @@ import com.game.engine.entities.Entity;
 public class PlayerGraphicsComponent extends GraphicsComponent {
 
     Sprite sprite;
+    
     public PlayerGraphicsComponent(){
         this._texture = new Texture(Gdx.files.internal("assets/spaceship.png"));
         this._sprite = new Sprite(this._texture);
@@ -27,9 +28,6 @@ public class PlayerGraphicsComponent extends GraphicsComponent {
         // TODO Auto-generated method stub
         _sprite.setPosition(this._currentPosition.x, this._currentPosition.y);
         _sprite.draw(batch);
-       
     }
-
-    
 
 }

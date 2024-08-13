@@ -16,11 +16,14 @@ public class Entity {
         DESTROYED
     }
 
+
+
     private String entityId;
     private List<Component> _components;
     private ControlComponent _controlComponent;
     private PhysicsComponent _physicsComponent;
     private GraphicsComponent _graphicsComponent;
+
 
 
     public Entity(ControlComponent control, PhysicsComponent physics, GraphicsComponent graphicsComponent){
@@ -29,15 +32,13 @@ public class Entity {
         _graphicsComponent = graphicsComponent;
         _components = new ArrayList<Component>();
         _components = List.of(control, physics, graphicsComponent);
-        this.entityId = IdGenerator.generateIdString(8);
-        
-        
+        this.entityId = IdGenerator.generateIdString(8);  
     }
 
-    // public void setGraphics(){}
     public void update(Batch batch, float delta){
         _graphicsComponent.update(this, batch, delta);
         _controlComponent.update(this, delta);
+        _physicsComponent.update(this, delta);
         
     }
 
@@ -50,14 +51,24 @@ public class Entity {
         return this.entityId;
     }
 
-
     /*
      * Exposing component control
      */
     
      // Movement
-     public void notifyPhysicsChange(){
+     public void notifyLocationChange(){
 
      }
+
+     /*
+      * GETTERS
+      */
+
+
+
+      /*
+       * SETTERS
+       */
+
     
 }
