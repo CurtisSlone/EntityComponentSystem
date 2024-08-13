@@ -23,7 +23,8 @@ public class RockPhysicsComponent extends PhysicsComponent{
 
     @Override
     public void update(Entity entity, float delta) {
-        // TODO Auto-generated method stub
+        shareMovement(entity.getGraphicsComponent());
     }
 
 }
+ 

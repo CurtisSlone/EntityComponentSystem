@@ -36,6 +36,13 @@ public abstract class MovementComponent implements Component {
     this._dimensions = dimension;
     }
 
+    public void setSpeed(float speed){
+        if (_velocityVec.len() == 0)
+            _velocityVec.set(speed, 0);
+        else
+            _velocityVec.setLength(speed);
+    }
+
     /*
     * GETTERS
     */

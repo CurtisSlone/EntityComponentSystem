@@ -52,15 +52,17 @@ public class MainGameScreen implements Screen {
 
     @Override
     public void render(float delta) {
+        
          // clear screen 
          Gdx.gl.glClearColor(0,0,0, 1);
          Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
  
         _batch.begin();
+        _batch.draw(_space,0,0);
 
          // Call update methods
-        _batch.draw(_space,0,0);
         _manager.updateCurrentEntities(_batch, delta);
+
         _batch.end();
        
     }
