@@ -36,10 +36,9 @@ public class Entity {
     }
 
     public void update(Batch batch, float delta){
-        _graphicsComponent.update(this, batch, delta);
         _controlComponent.update(this, delta);
         _physicsComponent.update(this, delta);
-        
+        _graphicsComponent.update(this, batch, delta);
     }
 
     public void dispose(){
@@ -52,23 +51,25 @@ public class Entity {
     }
 
     /*
-     * Exposing component control
-     */
-    
-     // Movement
-     public void notifyLocationChange(){
-
-     }
-
-     /*
-      * GETTERS
-      */
+    * Exposing component control
+    */
 
 
+    /*
+    * GETTERS
+    */
 
-      /*
-       * SETTERS
-       */
+    public PhysicsComponent getPhysicsComponent(){
+        return this._physicsComponent;
+    }
+
+    public GraphicsComponent getGraphicsComponent(){
+        return this._graphicsComponent;
+    }
+
+    /*
+    * SETTERS
+    */
 
     
 }
