@@ -24,6 +24,8 @@ public abstract class PhysicsComponent extends MovementComponent {
         if (_accelerationVec.len() == 0) speed -= _deceleration * delta;
 
         speed = MathUtils.clamp(speed, 0, _maxSpeed);
+        setSpeed(speed);
+        
     }
 
     public abstract void update(Entity entity, float delta);
